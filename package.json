@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "release-it": "^7.6.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
