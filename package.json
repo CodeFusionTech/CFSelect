@@ -1,6 +1,6 @@
 {
   "name": "cf-select",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "main": "dist/index.js",
   "repository": "git@github.com:ColdFusionTech/CFSelect.git",
   "author": "Eric Kim <bosung90@gmail.com>",
