@@ -416,9 +416,9 @@ return <CFSelect>{state => <span>Welcome {state.login.email}</span>}</CFSelect>
 
 ## Avoiding Rerender
 
-CFSelect already optimizes your code such that re-render is locaized to that specific component rather than entire component that you have connected.
+CFSelect already optimizes your code such that re-render is localized to the specific component rather than entire component that you have connected.
 
-However, to further optimize and avoid unneccesary creation of arrow functions and re-renders when parent component re-renders, you can use popular method that community uses
+However, to further optimize and avoid unneccesary creation of arrow functions and re-renders when the parent component re-renders, you can use popular method that React community uses
 
 ```jsx
 class App extends React.Component {
@@ -438,7 +438,7 @@ class App extends React.Component {
 Note that using above method will only re-render EmailText when email changes, therefore if your emailText depends on any other state or prop, you must pass that as argument through selector prop.
 
 ```jsx
-// Don't do this, your EmailText won't re-render when only state.name changes.
+// Don't do this, your EmailText won't re-render when only this.state.name changes.
 class App extends React.Component {
   render() {
     return (
