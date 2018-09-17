@@ -11,6 +11,7 @@ This library is already being used in production at ColdFusion and works with bo
 - [Getting Started](#getting-started)
 - [Replacing Connect](#replacing-connect)
 - [Conditional Element Render](#conditional-element-render)
+- [Avoiding Rerender](#avoiding-rerender)
 - [Takeaways](#takeaways)
 - [Future Roadmap](#future-roadmap)
 
@@ -411,6 +412,71 @@ As a fallback, not providing selector props will render props with root state
 
 ```jsx
 return <CFSelect>{state => <span>Welcome {state.login.email}</span>}</CFSelect>
+```
+
+## Avoiding Rerender
+
+CFSelect already optimizes your code such that re-render is locaized to that specific component rather than entire component that you have connected.
+
+However, to further optimize and avoid unneccesary creation of arrow functions and re-renders when parent component re-renders, you can use popular method that community uses
+
+```jsx
+class App extends React.Component {
+  render() {
+    return (
+      <CFSelect selector={state => state.login.email}>
+        {this.renderEmailText}
+      </CFSelect>
+    )
+  }
+  renderEmailText = email => {
+    return <span>Welcome {email}</span>
+  }
+}
+```
+
+Note that using above method will only re-render EmailText when email changes, therefore if your emailText depends on any other state or prop, you must pass that as argument through selector prop.
+
+```jsx
+// Don't do this, your EmailText won't re-render when only state.name changes.
+class App extends React.Component {
+  render() {
+    return (
+      <CFSelect selector={state => state.login.email}>
+        {this.renderEmailText}
+      </CFSelect>
+    )
+  }
+  renderEmailText = email => {
+    return (
+      <span>
+        Welcome {this.state.name} {email}
+      </span>
+    )
+  }
+}
+// Do this instead
+class App extends React.Component {
+  render() {
+    return (
+      <CFSelect
+        selector={state => ({
+          name: this.state.name,
+          email: state.login.email,
+        })}
+      >
+        {this.renderEmailText}
+      </CFSelect>
+    )
+  }
+  renderEmailText = ({ name, email }) => {
+    return (
+      <span>
+        Welcome {name} {email}
+      </span>
+    )
+  }
+}
 ```
 
 ### What does CF stand for?
