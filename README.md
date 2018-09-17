@@ -9,9 +9,9 @@ This library is already being used in production at ColdFusion and works with bo
 ## Index
 
 - [Getting Started](#getting-started)
-- [Examples](#examples)
+- [Replacing Connect](#replacing-connect)
 - [Conditional Element Render](#conditional-element-render)
-- [Takeaway](#takeaway)
+- [Takeaways](#takeaways)
 - [Future Roadmap](#future-roadmap)
 
 ## Getting Started
@@ -26,7 +26,7 @@ or
 yarn add cf-select
 ```
 
-## Examples
+## Replacing Connect
 
 Before
 
@@ -418,7 +418,7 @@ return <CFSelect>{state => <span>Welcome {state.login.email}</span>}</CFSelect>
 CF stands for ColdFusion. We create premium custom apps with online ordering solutions for restaurants.
 Please visit https://coldfusiontech.io for more information.
 
-## Takeaway
+## Takeaways
 
 1. Import dispatch from the store
 2. Use getState from the store for state dependent event, or use actions with getState built in.
