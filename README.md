@@ -266,7 +266,7 @@ export const uploadEmailToServer = () {
 
 ## Conditional Element Render
 
-In React, we often want to render a React Element if and only if certain condition is met. Most often than not we use inline conditional render either using `&&`
+In React, we often want to render a React Element if and only if certain condition is met. Most often than not we use inline conditional render using `&&`
 
 ```jsx
 render() {
@@ -284,12 +284,12 @@ However, we soon realize things get a little messy as we write more things
 
 ```jsx
 // Error: cannot render undefined
-state = {isLoggedIn: undefined}
+state = {email: undefined}
 render() {
   return (
     <div>
-      {this.state.isLoggedIn && (
-        <span>Welcome XXX</span>
+      {this.state.email && (
+        <span>Welcome {this.state.email}</span>
       )}
     </div>
   )
@@ -298,12 +298,12 @@ render() {
 
 ```jsx
 // Why are we rendering empty string?
-state = {isLoggedIn: ''}
+state = {email: ''}
 render() {
   return (
     <div>
-      {this.state.isLoggedIn && (
-        <span>Welcome XXX</span>
+      {this.state.email && (
+        <span>Welcome {this.state.email}</span>
       )}
     </div>
   )
@@ -433,8 +433,11 @@ Please visit https://coldfusiontech.io for more information.
 - [ ] Remove lodash dependency
 - [ ] Performance tests
 - [ ] Unit tests
+- [ ] CI running tests and releases
+- [ ] Types (FlowTypes, TypeScript, PropTypes)
+- [ ] Example project (React Web, React Native)
 
-Please help with any of the above future maps, bugs and spelling mistakes.
+Please help with any of the above future maps, bugs, and spelling mistakes.
 Any PR or feedbacks are welcome.
 
 Thank you!
