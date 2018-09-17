@@ -426,8 +426,8 @@ CF stands for ColdFusion. A startup creating premium custom apps with online ord
 
 ## Future Roadmap
 
-Conditional Element Render with else clause
-
-Access to dispatch with optional withDispatch props
+- [ ] Conditional Element Render with else clause
+- [ ] Access to dispatch with optional withDispatch props
+- [ ] Self Closing tag supporting array of values
 
 Any PR and feedbacks/issues are welcome.
