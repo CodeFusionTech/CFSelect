@@ -415,7 +415,8 @@ return <CFSelect>{state => <span>Welcome {state.login.email}</span>}</CFSelect>
 
 ### What does CF stand for?
 
-CF stands for ColdFusion. A startup creating premium custom apps with online order solutions for restaurants.
+CF stands for ColdFusion. We create premium custom apps with online ordering solutions for restaurants.
+Please visit https://coldfusiontech.io for more information.
 
 ## Takeaway
 
