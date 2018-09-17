@@ -430,5 +430,11 @@ Please visit https://coldfusiontech.io for more information.
 - [ ] Conditional Element Render with else clause
 - [ ] Access to dispatch with optional withDispatch props
 - [ ] Self Closing tag supporting array of values
+- [ ] Remove lodash dependency
+- [ ] Performance tests
+- [ ] Unit tests
 
-Any PR and feedbacks/issues are welcome.
+Please help with any of the above future maps, bugs and spelling mistakes.
+Any PR or feedbacks are welcome.
+
+Thank you!
