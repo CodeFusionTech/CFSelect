@@ -490,6 +490,18 @@ class App extends React.Component {
 CF stands for ColdFusion. We create premium web and mobile ordering solutions for sushi restaurants.
 Please visit https://coldfusiontech.io for more information.
 
+### [FAQ] Why is ColdFusion still alive
+
+We understand it brings back bad memories.
+
+However, we have no association with `Adobe ColdFusion`. If you really wish you can use
+
+```jsx
+import Select from 'cf-select'
+```
+
+We have nothing against that :)
+
 ## Takeaways
 
 1. Import dispatch from the store
