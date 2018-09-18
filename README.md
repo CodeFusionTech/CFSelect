@@ -146,7 +146,11 @@ return (
 
 ## What about `dispatch`?
 
-There is a huge misconception in react community that dispatch is only available through using connect. However, we strongly believe importing dispatch is far better. If you still wish to use connect to have access to dispatch, please go ahead.
+There is a huge misconception in react community that dispatch is only available through using connect. However, if you know that you will never support server-sided rendering we recommend importing dispatch directly.
+
+We still recommend using action creators rather than using dispatch directly in your UI Component.
+
+If you need to support server-side rendering you will have to use connect to have access to dispatch, until we support optional withDispatch props.
 
 Before
 
@@ -187,6 +191,8 @@ class A extends React.Component {
 
 Again, there is a huge misconception in react community that you need connect or in this case CFSelect to have access to redux state during some event.
 
+Unless you need to support server-sided rendering, you can import getState directly from the store.
+
 Before
 
 ```jsx
@@ -226,7 +232,7 @@ class App extends React.Component {
 
 You do NOT need connect or CFSelect unless your UI depends on the redux state.
 
-In fact, We recommend creating action creators that gets the redux state it needs directly from the store rather than depending on its caller (ie. UI component) to pass the state it needs.
+Similarily, we recommend using selectors so that your UI component isn't coupled to the structure of your redux store.
 
 Just as an example
 
