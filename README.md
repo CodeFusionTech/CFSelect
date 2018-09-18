@@ -481,7 +481,7 @@ class App extends React.Component {
 
 ### What does CF stand for?
 
-CF stands for ColdFusion. We create premium custom apps with online ordering solutions for restaurants.
+CF stands for ColdFusion. We create premium web and mobile ordering solutions for sushi restaurants.
 Please visit https://coldfusiontech.io for more information.
 
 ## Takeaways
