@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { isFunction, isPlainObject, isArray, mapValues } from 'lodash'
-
+import isFunction from 'lodash/isFunction'
+import isPlainObject from 'lodash/isPlainObject'
+import isArray from 'lodash/isArray'
+import mapValues from 'lodash/mapValues'
 // 1. RootState
 // <CFSelect>{rootState=><Text>{rootState.restaurant.name}</Text>}</CFSelect>
 
