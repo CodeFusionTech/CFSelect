@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "babel --out-dir dist --ignore *.test.js src",
+    "build": "babel --out-dir dist --ignore **/*.test.js src",
     "release": "release-it",
     "test": "jest"
   },
