@@ -41,13 +41,15 @@ const mapState = (state, props) => {
   }
   // 4. If selector is an array, use values as selector function to return slicedStates array
   if (isArray(props.selector)) {
-    return props.selector.map(v => {
-      if (isFunction(v)) {
-        return v(state)
-      } else {
-        return v
-      }
-    })
+    return {
+      state: props.selector.map(v => {
+        if (isFunction(v)) {
+          return v(state)
+        } else {
+          return v
+        }
+      }),
+    }
   }
   // 5. Just return selector as if it is a state
   return { state: props.selector }
