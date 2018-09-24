@@ -10,14 +10,26 @@ const config = configureStore();
 const default_state = {
   foo: "bar"
 }
+
 describe('CFSelet test', ()=>{
   let mockStore, wrapper;
   beforeEach(()=>{
     mockStore = config(default_state);
   });
 
-  test('Component returns default state if no selector presents', ()=>{
+  test('1. RootState', ()=>{
     wrapper = shallow(<CFSelect store={mockStore} />);
-    expect(wrapper.props().state).toBe(default_state);
+    expect(wrapper.props().state).toEqual(default_state);
+  });
+
+  test('2. selector as a function', ()=>{
+    wrapper = shallow(<CFSelect store={mockStore} selector={foo => ({hello: "world", ...foo})} />);
+    expect(wrapper.props().state).toEqual({hello: "world", ...default_state});
+  });
+
+  test('3. selector as an object with values as a function', ()=>{
+    wrapper = shallow(<CFSelect store={mockStore} selector={{ func: foo => ({hello: "world", ...foo}), get: "foo"}} />);
+    expect(wrapper.props().state.func.hello).toEqual("world");
+    expect(wrapper.props().state.get).toEqual("foo");
   });
 });
