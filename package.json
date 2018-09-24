@@ -1,6 +1,6 @@
 {
   "name": "cf-select",
-  "version": "1.0.22",
+  "version": "1.0.25",
   "main": "dist/index.js",
   "repository": "git@github.com:ColdFusionTech/CFSelect.git",
   "author": "Eric Kim <bosung90@gmail.com>",
@@ -25,13 +25,14 @@
   ],
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "babel --out-dir dist --ignore *.test.js src",
+    "build": "babel --out-dir dist --ignore **/*.test.js src",
     "release": "release-it",
     "test": "jest"
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "react": "16.4.1"
+    "react": "16.4.1",
+    "react-redux": "^5.0.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -44,7 +45,6 @@
     "enzyme-adapter-react-16": "^1.5.0",
     "jest": "^23.6.0",
     "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-mock-store": "^1.5.3",
     "release-it": "^7.6.1",
