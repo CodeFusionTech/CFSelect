@@ -24,45 +24,34 @@ const mapState = (state, props) => {
     return { state }
   }
   // 2. If selector is a function, use selector function to return a slicedState
-  if (isFunction(props.selector)) {
+  const { selector } = props
+  if (isFunction(selector)) {
     return {
-      state: props.selector(state),
+      state: selector(state),
     }
   }
   // 3. If selector is an object, use values as selector function to return slicedState object
-  if (isPlainObject(props.selector)) {
+  if (isPlainObject(selector)) {
     return {
-      state: mapValues(props.selector, v => {
-        if (isFunction(v)) {
-          return v(state)
-        } else {
-          return v
-        }
-      }),
+      state: mapValues(selector, v => isFunction(v) ? v(state) : v),
     }
   }
   // 4. If selector is an array, use values as selector function to return slicedStates array
-  if (isArray(props.selector)) {
-    return props.selector.map(v => {
-      if (isFunction(v)) {
-        return v(state)
-      } else {
-        return v
-      }
-    })
+  if (isArray(selector)) {
+    return selector.map(v => isFunction(v) ? v(state) : v)
   }
   // 5. Just return selector as if it is a state
-  return { state: props.selector }
+  return { state: selector }
 }
 
 export default connect(mapState)(
   class CFSelect extends React.Component {
     render() {
-      const { state, ...props } = this.props
-      if (this.props.children) {
-        if (isFunction(this.props.children)) {
+      const { state, children, ...props } = this.props
+      if (children) {
+        if (isFunction(children)) {
           // Render Props
-          return this.props.children(state, props)
+          return children(state, props)
         } else {
           // Conditional Render (render only if all selector object values are truthy)
           if (isPlainObject(state)) {
@@ -72,7 +61,7 @@ export default connect(mapState)(
                 return null
               }
             }
-            return this.props.children
+            return children
           }
           // Conditional Render (render only if all selector array values are truthy)
           if (isArray(state)) {
@@ -81,10 +70,10 @@ export default connect(mapState)(
                 return null
               }
             }
-            return this.props.children
+            return children
           }
           // Coditional Render only if selector is truthy
-          return !state ? null : this.props.children
+          return !state ? null : children
         }
       }
       // Self closing tag
