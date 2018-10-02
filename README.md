@@ -78,7 +78,7 @@ class App extends React.Component {
 }
 ```
 
-Multiple states from Redux
+Multiple states from Redux using object
 
 ```jsx
 import React from 'react'
@@ -88,10 +88,10 @@ class App extends React.Component {
   render() {
     return (
       <CFSelect
-        selector={state => ({
-          email: state.login.email,
-          name: state.login.name,
-        })}
+        selector={{
+          email: state => state.login.email,
+          name: state => state.login.name,
+        }}
       >
         {({ email, name }) => (
           <Text>
@@ -104,7 +104,30 @@ class App extends React.Component {
 }
 ```
 
-Equivalently
+Multiple states from Redux using array
+
+```jsx
+import React from 'react'
+import CFSelect from 'cf-select'
+
+class App extends React.Component {
+  render() {
+    return (
+      <CFSelect
+        selector={[state => state.login.email, state => state.login.name]}
+      >
+        {([email, name]) => (
+          <Text>
+            Welcome {name} {email}
+          </Text>
+        )}
+      </CFSelect>
+    )
+  }
+}
+```
+
+Equivalently you can just use two self-closing tag
 
 ```jsx
 import React from 'react'
@@ -130,10 +153,10 @@ import * as selectors from './selectors'
  ...
 return (
   <CFSelect
-    selector={state => ({
-      email: selectors.getEmail(state),
-      name: selectors.getName(state),
-    })}
+    selector={{
+      email: state => selectors.getEmail(state),
+      name: state => selectors.getName(state),
+    }}
   >
     {({ email, name }) => (
       <Text>
@@ -414,6 +437,38 @@ render() {
 }
 ```
 
+To Conditionally Render with falsy values, use `selectorNot` props. Like selector, selectorNot will accept true, false, array, and objects.
+
+```jsx
+render() {
+  return (
+    <CFSelect
+    selectorNot={state => state.login.isBanned}
+    selector={state => state.login.isLoggedIn}>
+      <span>Welcome XXX</span>
+      <span>You rock!</span>
+    </CFSelect>
+  )
+}
+```
+
+WARNING: If your Conditional Element Render depends on the redux state, you must pass a function as selector or selectorNot (or function as part of array or object values). Failing to do so will cause your CFSelect to not properly re-render the child component unless its parent Component re-renders.
+
+For instance: DO NOT DO
+
+```jsx
+render() {
+  return (
+    <CFSelect
+    // Do not do this, your child component will not re-render unless parent component of CFSelect re-renders
+    selector={getState().login.isLoggedIn}>
+      <span>Welcome XXX</span>
+      <span>You rock!</span>
+    </CFSelect>
+  )
+}
+```
+
 As a fallback, not providing selector props will render props with root state
 
 ```jsx
@@ -511,12 +566,12 @@ We have nothing against that :)
 
 ## Future Roadmap
 
-- [ ] Conditional Element Render with else clause
+- [x] Conditional Element Render selectorNot props
 - [ ] Access to dispatch with optional withDispatch props
 - [ ] Self Closing tag supporting array of values
 - [ ] Remove lodash dependency
 - [ ] Performance tests
-- [ ] Unit tests
+- [x] Unit tests
 - [ ] CI running tests and releases
 - [ ] Types (FlowTypes, TypeScript, PropTypes)
 - [ ] Example project (React Web, React Native)
