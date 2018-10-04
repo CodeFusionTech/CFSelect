@@ -569,6 +569,7 @@ We have nothing against that :)
 - [x] Conditional Element Render selectorNot props
 - [ ] Conditional Element Render selectorOr props
 - [ ] Conditional Element Render selectorNotOr props
+- [ ] Allow context to be passed as props to override state from context rather than react-redux's Provider
 - [ ] Access to dispatch with optional withDispatch props
 - [ ] Self Closing tag supporting array of values
 - [ ] Remove lodash dependency
@@ -578,7 +579,7 @@ We have nothing against that :)
 - [ ] Types (FlowTypes, TypeScript, PropTypes)
 - [ ] Example project (React Web, React Native)
 
-## Roadmap to 2.0
+## Breaking changes proposal for 2.0
 
 `Conditional Element Render` will no longer work with `selector` props and will be replaced with `ifSo` props. This allows both selector and ifSo to be used in conjunction. `selectorNot` will be replaced with `ifNot`. `ifSoOr` and `ifNotOr` will also be added.
 
