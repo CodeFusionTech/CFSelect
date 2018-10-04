@@ -567,6 +567,8 @@ We have nothing against that :)
 ## Future Roadmap
 
 - [x] Conditional Element Render selectorNot props
+- [ ] Conditional Element Render selectorOr props
+- [ ] Conditional Element Render selectorNotOr props
 - [ ] Access to dispatch with optional withDispatch props
 - [ ] Self Closing tag supporting array of values
 - [ ] Remove lodash dependency
