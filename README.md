@@ -578,6 +578,10 @@ We have nothing against that :)
 - [ ] Types (FlowTypes, TypeScript, PropTypes)
 - [ ] Example project (React Web, React Native)
 
+## Roadmap to 2.0
+
+`Conditional Element Render` will no longer work with `selector` props and will be replaced with `ifSo` props. This allows both selector and ifSo to be used in conjunction. `selectorNot` will be replaced with `ifNot`. `ifSoOr` and `ifNotOr` will also be added.
+
 Please help with any of the above future maps, bugs, and spelling mistakes.
 Any PR or feedbacks are welcome.
 
