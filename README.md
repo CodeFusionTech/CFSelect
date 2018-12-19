@@ -1,10 +1,10 @@
-# CFSelect [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Stop%20using%20Redux%20connect.%20Use%20CFSelect.&url=https://github.com/ColdFusionTech/CFSelect&hashtags=cfselect,cf-select,selector,redux,connect,react-redux,react,react-native)
+# CFSelect [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Stop%20using%20Redux%20connect.%20Use%20CFSelect.&url=https://github.com/CodeFusionTech/CFSelect&hashtags=cfselect,cf-select,selector,redux,connect,react-redux,react,react-native)
 
 ## Rethinking `connect`
 
 CFSelect abstracts away react-redux's `connect` using the power of render props. By using CFSelect instead of `connect` your code will be cleaner and faster.
 
-This library is already being used in production at ColdFusion and works with both ReactDOM and React Native.
+This library is already being used in production at CodeFusion and works with both ReactDOM and React Native.
 
 ## Index
 
@@ -542,20 +542,8 @@ class App extends React.Component {
 
 ### What does CF stand for?
 
-CF stands for ColdFusion. We create premium web and mobile ordering solutions for sushi restaurants.
-Please visit https://coldfusiontech.io for more information.
-
-### [FAQ] Why is ColdFusion still alive
-
-We understand it brings back bad memories.
-
-However, we have no association with `Adobe ColdFusion`. If you really wish you can use
-
-```jsx
-import Select from 'cf-select'
-```
-
-We have nothing against that :)
+CF stands for CodeFusion. We create premium web and mobile ordering solutions for restaurants.
+Please visit https://codefusion.tech for more information.
 
 ## Takeaways
 
